@@ -1,21 +1,37 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import HomeView from '../views/HomeView.vue';
-import ProductCart from '../View/Product/ProductCard.vue'
+// import HomeView from '../View/HomeView.vue';
+import ProductCart from '../View/Product/ProductCard.vue';
+import CategoryCart from '../View/Catgory/CategoryCart.vue';
+import AddProduct from '../View/Product/AddProduct.vue';
 const routes = [
-    // {
+//   {
+//     path: '/home',
+//     name: 'Home',
+//     component: HomeView
+//   },
 
-    //     path: '/Home',
-    //     name: 'Home',
-    //     component: HomeView
-    // },
-    {
-        path: '/ProductCart',
-        name:'ProductCart',
-        component:ProductCart
-    }
-]
+//Product
+  {
+    path: '/product',
+    name: 'ProductCart',
+    component: ProductCart
+  },
+  {
+    path:'/AddProduct',
+    name:'ProductCart',
+    component:AddProduct
+  },
+  //Category
+  {
+    path:'/category',
+    name:'CategoryCart',
+    component: CategoryCart
+  }
+];
+
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
-  })
-  export default router
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+});
+
+export default router;

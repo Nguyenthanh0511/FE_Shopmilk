@@ -8,7 +8,7 @@
     <!-- Check if products data is available -->
     <div v-if="products && products.length > 0" class="row">
       <!-- Display all the products in productbox component -->
-      <div v-for="(product, index) in sliceProducts" :key="index" class="col-md-6 col-xl-4 col-12 d-flex">
+      <div v-for="product in products" :key="product.prodId" class="col-md-6 col-xl-4 col-12 d-flex">
         <div>
           <ProductBox :product="product"></ProductBox>
         </div>
@@ -31,26 +31,9 @@
     props: ["products"],
       // Other methods
     data() {
-      return {
-      pageSize : 9,
-      currentPage : 1,
-      }
-    },
-    computed:{
-      startIndex(){
-        return (this.currentPage -1 )*this.pageSize;
-      },
-      sliceProducts(){
-        return this.products.slice(this.startIndex,this.startIndex + this.pageSize);
-      }
     },
     methods:{
-     loadMore(){
-          this.currentPage++;
-        },
-      AgainMore(){
-          this.currentPage--;
-      }
+    
     },
    
   }
