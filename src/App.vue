@@ -1,12 +1,7 @@
 <template>
   <div>
     <MenuView></MenuView>
-    <router-view
-    :baseURL = "baseURL"
-    :products = "products"
-    :categories= "categories"
-     @fetchdata= "fetchdata"
-    ></router-view>
+    <router-view :baseURL="baseURL" :products="products" :categories="categories" @fetchdata="fetchdata"></router-view>
     <hr>
     <!-- <SignIn v-if = "!authorize" @login-success ="handlerToken" :baseURL="baseURL"></SignIn> -->
     <FooterBox></FooterBox>
@@ -18,50 +13,51 @@ import MenuView from './components/MenuView.vue'
 import FooterBox from './components/FooterBox.vue'
 // import SignIn from './View/SignIn.vue'
 export default {
-  components:{
+  components: {
     MenuView,
     FooterBox,
     // SignIn
   },
   data() {
     return {
-      baseURL : "https://localhost:7246/api",
+      baseURL: "https://localhost:7246/api",
       products: null,
       categories: null,
-      authorize:false
+      authorize: false
     }
   },
-  methods:{
-    async fetchdata(){
+  methods: {
+    async fetchdata() {
       const token = localStorage.getItem('token');
-      if(!token){
+      if (!token) {
         return;
       }
       try {
-      const response = await axios.get(this.baseURL + "/product/getall", {
-        headers: {
-          Authorization: `Bearer ${token}` // Use backticks here for proper string interpolation
-        }
-      });
-      this.products = response.data;
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
+        const response = await axios.get(this.baseURL + "/product/getall", {
+          headers: {
+            Authorization: `Bearer ${token}` // Use backticks here for proper string interpolation
+          }
+        });
+        this.products = response.data;
+        console.log("product:",this.products)
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
 
-      try{
-        const repon = await axios.get(this.baseURL + "/category/getall",{
-          headers:{
-            authorization:`Bearer ${token}`
+      try {
+        const repon = await axios.get(this.baseURL + "/category/getall", {
+          headers: {
+            authorization: `Bearer ${token}`
           }
         });
         this.categories = repon.data;
       }
-      catch(error){
-        console.error('Error fetching categories:',error);
+      catch (error) {
+        console.error('Error fetching categories:', error);
       }
-      
+
     },
-    handlerToken(){
+    handlerToken() {
       // this.token = localStorage.getItem('token')
       // this.fetchdata();
       this.authorize = true;
@@ -70,14 +66,12 @@ export default {
 
   },
   mounted() {
-    this.fetchdata();    
+    this.fetchdata();
     this.token = localStorage.getItem('token');
-    if(this.token){
+    if (this.token) {
       this.authorize = true;
       this.fetchdata();
     }
   },
 };
 </script>
-
-

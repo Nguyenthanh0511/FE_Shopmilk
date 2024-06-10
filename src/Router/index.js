@@ -7,7 +7,7 @@ import SignIn from '../View/SignIn.vue';
 import AdminLayout from '../components/Dialog/AdminLayout.vue'
 import ShowProduct from '../View/ProductAdmin/ShowProduct.vue';
 import DeleteProduct from'../View/ProductAdmin/DeleteProduct.vue';
-
+import UpdateProduct from '../View/ProductAdmin/UpdateProduct.vue';
 const routes = [
 //   {
 //     path: '/home',
@@ -33,8 +33,12 @@ const routes = [
         path:'DeleteProduct',
         name:'DeleteProduct',
         component:DeleteProduct
+      },
+      {
+        path:'UpdateProduct',
+        name:'UpdateProduct',
+        component:UpdateProduct
       }
-
     ]
   },
   {
@@ -49,11 +53,7 @@ const routes = [
     name: 'ProductCart',
     component: ProductCart
   },
-  // {
-  //   path:'/AddProduct',
-  //   name:'AddProduct',
-  //   component:AddProduct
-  // },
+
   //Category
   {
     path:'/category',
@@ -69,7 +69,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
-  if (to.path.startsWith('/AdminLayout') && !token && !role) {
+  if (to.path.startsWith('/AdminLayout') && token==null || role==null) {
     next('/sign');
   } else {
     next();

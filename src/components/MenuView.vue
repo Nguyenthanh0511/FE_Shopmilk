@@ -1,9 +1,11 @@
 <template>
   <div>
-<!-- Don't fix issue of the menu -->
+    <!-- Don't fix issue of the menu -->
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../assets/Img/logo.png"></a>
+        <router-link class="navbar-brand" to="/">
+        <img src="../assets/Img/logo.png" alt="Logo">
+      </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,21 +23,15 @@
           <!-- Đăng nhập -->
         </div>
         <div class="col ml-5">
-            <ul>
-              <li class="nav-item dropdown">
-                <a class="nav-link fas fa-user text-black dropdown-toggle" href="#" id="navbarDropdownAccounts" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Accounts
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownAccounts">
-                  <a class="dropdown-item" >
-                    <router-link to="/adminLayout"></router-link>Admin
-                    </a>
-                  <a class="dropdown-item show" >Login</a>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li class="nav-item dropdown">
+              <router-link class="nav-link fas fa-user text-black dropdown-toggle" to="/adminLayout" role="button"
+                aria-haspopup="true" aria-expanded="false">
+                Accounts
+              </router-link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
     <div>
@@ -85,29 +81,19 @@ export default {
     // document.getElementById('navbarDropdownAccounts').addEventListener('click',(event)=>{
     //   event.target.parentNode.querySelector('dropdown-menu').style.display = "block"
     // })
-    const navDropDanhMuc = document.getElementById('navDropDanhMuc')
-    // const navbarDropdownAccounts = document.getElementById('navbarDropdownAccounts')
-    if(navDropDanhMuc){
-      navDropDanhMuc.addEventListener('click',(event)=>{
-        const dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu')
-        if(navDropDanhMuc){
+    // const navDropDanhMuc = document.getElementById('navDropDanhMuc')
+    // // const navbarDropdownAccounts = document.getElementById('navbarDropdownAccounts')
+    // if (navDropDanhMuc) {
+    //   navDropDanhMuc.addEventListener('click', (event) => {
+    //     const dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu')
+    //     if (navDropDanhMuc) {
 
-          dropdownMenu.style.display = "block"
-          document.addEventListener('click', this.handleOutsideClick);
-          }
-      })
-    }
+    //       dropdownMenu.style.display = "block"
+    //       document.addEventListener('click', this.handleOutsideClick);
+    //     }
+    //   })
+    // }
   },
-  methods:{
-    handleOutsidClick(eventlist){
-      const dropdownmenu = document.querySelector('.dropdown-menu');
-      dropdownmenu.foreach((menu)=>{
-        if(!menu.contains(eventlist.target) && !menu.previousElementSibling.contains(event.target))
-          menu.style.display = "none"
-      });
-      document.removeEventListener('click', this.handleOutsideClick);
-    }
-  }
 };
 </script>
 

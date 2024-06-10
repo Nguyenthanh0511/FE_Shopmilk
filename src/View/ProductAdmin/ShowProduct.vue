@@ -23,6 +23,7 @@
                                 </td>
                                 <td>
                                     <a class="link-primary" @click="routerDeleteProduct(item.prodId)">Delete</a>
+                                    <a class="link-primary" @click="routerUpdateProduct(item.prodId)">Update</a>
                                     <!-- <router-link :to="{ name: 'DeleteProduct', params: { prodId: item.prodId }}">Delete</router-link> -->
                                 </td>
                         </tr>
@@ -53,6 +54,9 @@ export default {
         routerDeleteProduct(prodId){
             this.$router.push({ name: 'DeleteProduct', params: { prodId: prodId } });
             // this.$router.push({name:'DeleteProduct',params:{prodId:prodId}})
+        },
+        routerUpdateProduct(prodId){
+            this.$router.push({name:"UpdateProduct",params:{prodId:prodId}});
         }
     }
 }

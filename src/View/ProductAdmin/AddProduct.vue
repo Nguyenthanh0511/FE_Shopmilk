@@ -11,7 +11,9 @@
         <div class="form-group">
           <label>Category</label>
           <select class="form-control" v-model="cateId" required>
-            <option v-for="category in categories" :key="category.cateId" :value="category.cateId">{{ category.cateName }}: {{ category.cateId }}</option> Alo, ở chỗ này lúc tôi chọn name của category, tôi muốn lấy luôn id của nó thì như nào nhề, ông hiểu ý tôi khôngC Tdungfungf 
+            <option v-for="category in categories" :key="category.cateId" :value="category.cateId">{{ category.cateName
+              }}: {{ category.cateId }}</option> Alo, ở chỗ này lúc tôi chọn name của category, tôi muốn lấy luôn id của
+            nó thì như nào nhề, ông hiểu ý tôi khôngC Tdungfungf
           </select>
         </div>
         <div class="form-group">
@@ -47,13 +49,13 @@ import axios from 'axios';
 import swal from 'sweetalert';
 
 export default {
-  name:"AddProduct",
+  name: "AddProduct",
   props: {
     categories: {
       type: Array,
       default: () => []
     },
-    products:{
+    products: {
       type: Array,
       default: () => []
     },

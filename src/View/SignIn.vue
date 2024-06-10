@@ -73,7 +73,6 @@
             Authorization: `Bearer ${token}` // Use token in headers
           }
         });
-        console.log('User Response received:', userResponse); //debugg
         const firstUser = userResponse.data[0];
         const role = firstUser.uRole;
         // Store role in localStorage

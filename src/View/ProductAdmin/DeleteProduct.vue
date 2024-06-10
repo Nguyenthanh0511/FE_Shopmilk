@@ -81,11 +81,13 @@ export default {
                     }
                 });
                 swal({
-                text: "Product Added Successfully!",
-                icon: "success",
-                closeOnClickOutside: false,
-                }),
-                this.$route.push({name:'adminlayout'})
+                    text: "Product Added Successfully!",
+                    icon: "success",
+                    closeOnClickOutside: false,
+                })
+                .then(()=>{
+                    this.$router.push({name:'AdminLayout'})
+                })
 
                 //delete
                 // axios.post(`${this.baseURL}/product/delete`,{
