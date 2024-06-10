@@ -27,15 +27,10 @@
   <script>
   import ProductBox from '../../components/Product/ProductBox.vue'
   export default {
+    name:"ProductCart",
     components: {ProductBox},
     props: ["products"],
       // Other methods
-    data() {
-    },
-    methods:{
-    
-    },
-   
   }
   // import ProductBox from '../../components/Product/ProductBox.vue'
   // export default {

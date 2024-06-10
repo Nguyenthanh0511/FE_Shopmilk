@@ -15,23 +15,23 @@
           <div class="col-md-6">
             <form class="form-inline flex justify-content-center">
               <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Searchhhh</button>
             </form>
           </div> <!-- 6 -->
           <!-- Đăng nhập -->
-         
         </div>
         <div class="col ml-5">
             <ul>
-
               <li class="nav-item dropdown">
-                <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdownAccounts" role="button"
+                <a class="nav-link fas fa-user text-black dropdown-toggle" href="#" id="navbarDropdownAccounts" role="button"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Accounts
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownAccounts">
-                  <a class="dropdown-item" href="#">Admin</a>
-                  <a class="dropdown-item show" data-href="/login">Login</a>
+                  <a class="dropdown-item" >
+                    <router-link to="/adminLayout"></router-link>Admin
+                    </a>
+                  <a class="dropdown-item show" >Login</a>
                 </div>
               </li>
             </ul>
@@ -39,7 +39,6 @@
       </nav>
     </div>
     <div>
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a class="navbar-brand" href="#">Sữa Tươi</a>
@@ -80,9 +79,34 @@
 export default {
   name: 'MenuView',
   mounted() {
-    document.getElementById('navDropDanhMuc').addEventListener('click', (event) => {
-      event.target.parentNode.querySelector('.dropdown-menu').style.display = "block"
-    })
+    // document.getElementById('navDropDanhMuc').addEventListener('click', (event) => {
+    //   event.target.parentNode.querySelector('.dropdown-menu').style.display = "block"
+    // }),
+    // document.getElementById('navbarDropdownAccounts').addEventListener('click',(event)=>{
+    //   event.target.parentNode.querySelector('dropdown-menu').style.display = "block"
+    // })
+    const navDropDanhMuc = document.getElementById('navDropDanhMuc')
+    // const navbarDropdownAccounts = document.getElementById('navbarDropdownAccounts')
+    if(navDropDanhMuc){
+      navDropDanhMuc.addEventListener('click',(event)=>{
+        const dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu')
+        if(navDropDanhMuc){
+
+          dropdownMenu.style.display = "block"
+          document.addEventListener('click', this.handleOutsideClick);
+          }
+      })
+    }
+  },
+  methods:{
+    handleOutsidClick(eventlist){
+      const dropdownmenu = document.querySelector('.dropdown-menu');
+      dropdownmenu.foreach((menu)=>{
+        if(!menu.contains(eventlist.target) && !menu.previousElementSibling.contains(event.target))
+          menu.style.display = "none"
+      });
+      document.removeEventListener('click', this.handleOutsideClick);
+    }
   }
 };
 </script>

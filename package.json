@@ -11,6 +11,8 @@
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
+    "swal": "^0.1.0",
+    "sweetalert": "^2.1.2",
     "vue": "^3.4.27",
     "vue-router": "^4.0.13"
   },

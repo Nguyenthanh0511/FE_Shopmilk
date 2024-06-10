@@ -15,7 +15,6 @@ export default {
         category: {
             Type: Object,
             require:true
-
         }
     }
 }
