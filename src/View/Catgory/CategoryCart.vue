@@ -6,10 +6,10 @@
             </div>
         </div>
         <div v-if="categories && categories.length > 0 ">
-            <div v-for="category in categories" 
+            <div 
+            v-for="category in categories" 
                     :key="category.cateId">
                 <CategoryBox :category = "category">
-
                 </CategoryBox>
             </div>
         </div>
@@ -19,7 +19,6 @@
         </div>
     </div>
 </template>
-
 <script>
 import CategoryBox from '../../components/Category/CategoryBox.vue'
 export default {

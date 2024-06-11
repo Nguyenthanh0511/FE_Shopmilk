@@ -9,35 +9,35 @@
       <div class="col-3"></div>
       <form @submit.prevent="addProduct">
         <div class="form-group">
-          <label>Category</label>
-          <select class="form-control" v-model="cateId" required>
+          <label for="category">Category</label>
+          <select id="category" class="form-control" v-model="cateId" required>
             <option v-for="category in categories" :key="category.cateId" :value="category.cateId">{{ category.cateName
-              }}: {{ category.cateId }}</option> Alo, ở chỗ này lúc tôi chọn name của category, tôi muốn lấy luôn id của
-            nó thì như nào nhề, ông hiểu ý tôi khôngC Tdungfungf
+              }}: {{ category.cateId }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label>Prodid</label>
-          <input type="text" class="form-control" v-model="prodId" required>
+          <label for="prodId">Prodid</label>
+          <input id="prodId" type="text" class="form-control form-control-sm" v-model="prodId" required>
         </div>
         <div class="form-group">
-          <label>Name</label>
-          <input type="text" class="form-control" v-model="productName" required>
+          <label for="productName">Name</label>
+          <input id="productName" type="text" class="form-control form-control-sm" v-model="productName" required>
         </div>
         <div class="form-group">
-          <label>Description</label>
-          <input type="text" class="form-control" v-model="productDescription" required>
+          <label for="productDescription">Description</label>
+          <input id="productDescription" type="text" class="form-control" v-model="productDescription" required>
         </div>
         <div class="form-group">
-          <label>Image URL</label>
-          <input type="url" class="form-control" v-model="productImageUrl" required>
+          <label for="productImageUrl">Image URL</label>
+          <input id="productImageUrl" type="url" class="form-control" v-model="productImageUrl" required>
         </div>
         <div class="form-group">
-          <label>Price</label>
-          <input type="number" class="form-control" v-model="productPrice" required>
+          <label for="productPrice">Price</label>
+          <input id="productPrice" type="number" class="form-control" v-model="productPrice" required>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+
     </div>
   </div>
   <!-- <div class="text-center mt-3" v-if="!hasPermission">
@@ -91,7 +91,7 @@ export default {
             'Content-Type': 'multipart/form-data'
           }
         });
-        this.$router.push({ name: 'ProductCart' });
+        this.$router.push({ name: 'ShowProduct' });
         swal({
           text: "Product Added Successfully!",
           icon: "success",
@@ -111,4 +111,11 @@ export default {
 
 <style>
 /* Add your custom styles here */
+    /* Add your custom styles here */
+    .form-group input[type="text"],
+    .form-group input[type="url"],
+    .form-group input[type="number"],
+    .form-group select {
+        font-weight: 300; /* Adjust the font weight as needed */
+    }
 </style>

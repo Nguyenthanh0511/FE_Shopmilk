@@ -23,7 +23,6 @@
     </div>
   </div>
 </template>
-  
   <script>
   import ProductBox from '../../components/Product/ProductBox.vue'
   export default {
@@ -32,21 +31,6 @@
     props: ["products"],
       // Other methods
   }
-  // import ProductBox from '../../components/Product/ProductBox.vue'
-  // export default {
-  //     name:'ProductChild', // đặt tên như này để tránh multipl-word
-  //     components:{ProductBox},
-  //     props:["products"],
-  //     data(){
-  //         return{
-  //             baseURL: "https://limitless-lake-55070.herokuapp.com/"
-  //         };
-  //     },
-  //     methods: {
-  //     },
-  //     mounted(){
-  //     }
-  //}
   </script>
   
   <style>

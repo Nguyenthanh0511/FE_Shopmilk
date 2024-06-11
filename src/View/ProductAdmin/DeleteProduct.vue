@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <input asp-for="Id" type="hidden" />
+                        <input type="hidden" />
                         <input type="submit" :v-model="prodId" class="btn btn-danger" />
                         <a asp-area="Administrator" asp-controller="Product" asp-action="Index"
                             class="btn btn-secondary">Cancel
@@ -70,11 +70,8 @@ export default {
     methods: {
         async deleteProduct() {
             try {
-
-
                 const formData = new FormData();
                 formData.append('prodIdFormat', this.prodId); // Append prodId to FormData
-
                 await axios.post(`${this.baseURL}/product/delete`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data' // Use multipart/form-data
@@ -86,9 +83,8 @@ export default {
                     closeOnClickOutside: false,
                 })
                 .then(()=>{
-                    this.$router.push({name:'AdminLayout'})
+                    this.$router.push({name:'AdminLayout'}) // Encounter issue of router
                 })
-
                 //delete
                 // axios.post(`${this.baseURL}/product/delete`,{
                 //     prodId:this.prodId
@@ -97,7 +93,6 @@ export default {
                 //         'Content-Type': 'multipart/form-data'
                 //     }
                 // })  ;              
-
             } catch (err) {
                 console.error('Error adding product:', err);
                 swal("Oops!", "Failed to add product. Please try again later.", "error");

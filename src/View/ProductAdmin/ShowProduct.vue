@@ -2,8 +2,8 @@
     <div>
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Category</h5>
-                <a class="btn btn-danger"><router-link to="/AdminLayout/AddProduct"></router-link>Add new</a>
+                <h5 class="card-title">Product</h5>
+                <router-link class="btn btn-primary" to="/AdminLayout/AddProduct">Create</router-link>
                 <!-- Table with stripped rows -->
                 <table class="table table-striped">
                     <thead>
@@ -21,9 +21,9 @@
                                 <td>{{item.prodTitle}}</td>
                                 <td><img :src="item.prodImageUrl" alt="" style="width: 100px; height: auto;" />
                                 </td>
-                                <td>
-                                    <a class="link-primary" @click="routerDeleteProduct(item.prodId)">Delete</a>
-                                    <a class="link-primary" @click="routerUpdateProduct(item.prodId)">Update</a>
+                                <td class="">
+                                    <a class="btn btn-primary" @click="routerDeleteProduct(item.prodId)">Delete</a>
+                                    <a class="btn btn-primary" @click="routerUpdateProduct(item.prodId)">Update</a>
                                     <!-- <router-link :to="{ name: 'DeleteProduct', params: { prodId: item.prodId }}">Delete</router-link> -->
                                 </td>
                         </tr>

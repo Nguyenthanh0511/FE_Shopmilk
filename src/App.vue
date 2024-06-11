@@ -1,6 +1,7 @@
 <template>
   <div>
     <MenuView></MenuView>
+    <BannerView v-if="this.role == false"></BannerView>
     <router-view :baseURL="baseURL" :products="products" :categories="categories" @fetchdata="fetchdata"></router-view>
     <hr>
     <!-- <SignIn v-if = "!authorize" @login-success ="handlerToken" :baseURL="baseURL"></SignIn> -->
@@ -11,11 +12,13 @@
 import axios from 'axios';
 import MenuView from './components/MenuView.vue'
 import FooterBox from './components/FooterBox.vue'
+import BannerView from './components/BannerView.vue'
 // import SignIn from './View/SignIn.vue'
 export default {
   components: {
     MenuView,
     FooterBox,
+    BannerView
     // SignIn
   },
   data() {
@@ -23,7 +26,8 @@ export default {
       baseURL: "https://localhost:7246/api",
       products: null,
       categories: null,
-      authorize: false
+      authorize: false,
+      role:false
     }
   },
   methods: {
@@ -71,6 +75,10 @@ export default {
     if (this.token) {
       this.authorize = true;
       this.fetchdata();
+    }
+    this.role = localStorage.getItem('role')
+    if(this.role == "Admin"){
+      return this.role = true;
     }
   },
 };

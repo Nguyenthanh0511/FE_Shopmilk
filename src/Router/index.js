@@ -8,6 +8,10 @@ import AdminLayout from '../components/Dialog/AdminLayout.vue'
 import ShowProduct from '../View/ProductAdmin/ShowProduct.vue';
 import DeleteProduct from'../View/ProductAdmin/DeleteProduct.vue';
 import UpdateProduct from '../View/ProductAdmin/UpdateProduct.vue';
+import ShowCategory from '../View/CategoryAdmin/ShowCategory.vue';
+import AddCategory from '../View/CategoryAdmin/AddCategory.vue';
+import UpdateCategory from '../View/CategoryAdmin/UpdateCategory.vue'
+import DeleteCategory from '../View/CategoryAdmin/DeleteCategory.vue'
 const routes = [
 //   {
 //     path: '/home',
@@ -20,7 +24,7 @@ const routes = [
     component:AdminLayout,
     children:[
       {
-      path:'addProduct',
+      path:'AddProduct',
       name:'AddProduct',
       component:AddProduct
       },
@@ -38,7 +42,27 @@ const routes = [
         path:'UpdateProduct',
         name:'UpdateProduct',
         component:UpdateProduct
-      }
+      },
+      {
+        path:'ShowCategory',
+        name:'ShowCategory',
+        component:ShowCategory
+      },
+      {
+        path:'AddCategory',
+        name:'AddCategory',
+        component:AddCategory
+      },
+      {
+        path:'UpdateCategory',
+        name:'UpdateCategory',
+        component:UpdateCategory
+      },
+      {
+        path:'DeleteCategory',
+        name:'DeleteCategory',
+        component:DeleteCategory
+      },
     ]
   },
   {
@@ -49,7 +73,7 @@ const routes = [
   
   //Product
   {
-    path: '/product',
+    path: '/ProductCart',
     name: 'ProductCart',
     component: ProductCart
   },
@@ -69,7 +93,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
-  if (to.path.startsWith('/AdminLayout') && token==null || role==null) {
+  if (to.path.startsWith('/AdminLayout') && (token==null || role!=null)) {
     next('/sign');
   } else {
     next();

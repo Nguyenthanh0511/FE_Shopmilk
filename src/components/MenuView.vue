@@ -1,74 +1,70 @@
 <template>
-  <div>
-    <!-- Don't fix issue of the menu -->
-    <div>
+  <div class="main">
+    <!-- First Navbar -->
+    <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <router-link class="navbar-brand" to="/">
-        <img src="../assets/Img/logo.png" alt="Logo">
-      </router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul>
-        </ul>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Phần search -->
-          <div class="col-md-6">
+        <div class="col-xl-2 col-2 col-md-3">
+          <router-link class="navbar-brand" to="/">
+            <img src="../assets/Img/logo.png" alt="Logo">
+          </router-link>
+        </div>
+        <div class="col-xl-10 collapse navbar-collapse" id="navbar1">
+          <div class="col-xl-8 col-lg-9 col-8 col-md-9">
             <form class="form-inline flex justify-content-center">
               <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Searchhhh</button>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-          </div> <!-- 6 -->
-          <!-- Đăng nhập -->
-        </div>
-        <div class="col ml-5">
-          <ul>
-            <li class="nav-item dropdown">
-              <router-link class="nav-link fas fa-user text-black dropdown-toggle" to="/adminLayout" role="button"
-                aria-haspopup="true" aria-expanded="false">
-                Accounts
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">Sữa Tươi</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active dropdown">
-                <a class="nav-link dropdown-toggle" id="navDropDanhMuc" role="button" href="#">Danh mục <span
-                    class="sr-only"></span></a>
-                <div class="dropdown-menu" aria-labelledby="navDropDanhMuc">
-                  <a class="dropdown-item" href="#">Admin</a>
-                  <a class="dropdown-item show" data-href="/login">Login</a>
-                  <a class="dropdown-item show" data-href="/wishlist">Wish list</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sản phẩm ưa thích</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sản phẩm khuyến mãi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Giới thiệu</a>
+          </div>
+          <div class="col-xl-4 col-2 col-lg-3 ml-3">
+            <ul class="navbar-nav no-bullet">
+              <li class="nav-item dropdown">
+                <router-link class="nav-link fas fa-user text-black dropdown-toggle" to="/adminLayout" role="button"
+                  aria-haspopup="true" aria-expanded="false">
+                  Login
+                </router-link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
-  </div>
+    <!-- Second Navbar -->
+    <div class="container p-2">
+      <div class="row">
+        <div class="col-lg-2">
 
+        </div>
+        <div class="col-lg-10">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container ">
+              <!-- Logo or Home Link -->
+              <!-- Collapsible Navbar Content -->
+              <div class="collapse navbar-collapse" id="navbar2">
+                <!-- Navbar Items -->
+                <ul class="navbar-nav mr-auto list-group">
+                  <li class="list-group-item ">
+                    <router-link class="nav-link" to="/">Home</router-link>
+                  </li>
+                  <li class="list-group-item  ">
+                    <router-link to="ProductCart" class="nav-link btn" id="navDropDanhMuc"
+                      role="">Product</router-link>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="nav-link" href="#">Shopping</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="nav-link" href="#">Giới thiệu</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -99,4 +95,7 @@ export default {
 
 <style>
 /* Add your custom styles here */
+.no-bullet {
+  list-style-type: none;
+}
 </style>
