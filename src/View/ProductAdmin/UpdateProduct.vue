@@ -75,6 +75,7 @@ export default {
                 formData.append("prodTitle", this.prodTitle);
                 formData.append("prodPrice", this.productPrice);
                 formData.append("prodImageUrl", this.productImageUrl);
+                formData.append("ProdDescription",this.productDescription)
                 axios.put(`${this.baseURL}/product/update`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'

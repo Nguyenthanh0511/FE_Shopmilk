@@ -15,12 +15,22 @@
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
-          <div class="col-xl-4 col-2 col-lg-3 ml-3">
+          <div class="col-xl-2 col-1 col-lg-2 ml-2">
+            <ul class="navbar-nav no-bullet">
+              <li class="nav-item dropdown">
+                <router-link class="nav-link fas fa-user text-black dropdown-toggle" to="/signin" role="button"
+                  aria-haspopup="true" aria-expanded="false">
+                  Login
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xl-2 col-1 col-lg-1 ml-1">
             <ul class="navbar-nav no-bullet">
               <li class="nav-item dropdown">
                 <router-link class="nav-link fas fa-user text-black dropdown-toggle" to="/adminLayout" role="button"
                   aria-haspopup="true" aria-expanded="false">
-                  Login
+                  Admin
                 </router-link>
               </li>
             </ul>
@@ -46,11 +56,12 @@
                     <router-link class="nav-link" to="/">Home</router-link>
                   </li>
                   <li class="list-group-item  ">
-                    <router-link to="ProductCart" class="nav-link btn" id="navDropDanhMuc"
+                    <router-link to="/ProductCart" class="nav-link btn" id="navDropDanhMuc"
                       role="">Product</router-link>
                   </li>
                   <li class="list-group-item">
-                    <a class="nav-link" href="#">Shopping</a>
+                    <router-link to="/ShowCart" class="nav-link btn" id="navDropDanhMuc"
+                      role="">ShowCart</router-link>
                   </li>
                   <li class="list-group-item">
                     <a class="nav-link" href="#">Giới thiệu</a>

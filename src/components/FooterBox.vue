@@ -33,18 +33,16 @@
                  </li>
                </ul>
              </div>
- 
- 
              <div class="col-md-3 mb-4 mb-md-0">
                <h3>Instagram</h3>
                <div class="row gallery">
                  <div class="col-6">
-                   <a href="#"><img src="../images/img_1.jpg" alt="Image" class="img-fluid"></a>
-                   <a href="#"><img src="../images/img_2.jpg" alt="Image" class="img-fluid"></a>
+                   <a href="#"><img src="../images/img_TH1.jpg" alt="Image" class="img-fluid"></a>
+                   <a href="#"><img src="../images/img_TH2.jpg" alt="Image" class="img-fluid"></a>
                  </div>
                  <div class="col-6">
-                   <a href="#"><img src="../images/img_3.jpg" alt="Image" class="img-fluid"></a>
-                   <a href="#"><img src="../images/img_4.jpg" alt="Image" class="img-fluid"></a>
+                   <a href="#"><img src="../images/img_TH3.jpg" alt="Image" class="img-fluid"></a>
+                   <a href="#"><img src="../images/img_TH4.jpg" alt="Image" class="img-fluid"></a>
                  </div>
                </div>
              </div>

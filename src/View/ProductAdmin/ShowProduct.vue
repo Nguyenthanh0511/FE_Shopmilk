@@ -11,7 +11,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">ImageUrl</th>
-                            <th></th>
+                            <th scope="col">Cateid</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +21,7 @@
                                 <td>{{item.prodTitle}}</td>
                                 <td><img :src="item.prodImageUrl" alt="" style="width: 100px; height: auto;" />
                                 </td>
+                                <td>{{item.cateId }}</td>
                                 <td class="">
                                     <a class="btn btn-primary" @click="routerDeleteProduct(item.prodId)">Delete</a>
                                     <a class="btn btn-primary" @click="routerUpdateProduct(item.prodId)">Update</a>

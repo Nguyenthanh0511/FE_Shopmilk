@@ -12,6 +12,8 @@ import ShowCategory from '../View/CategoryAdmin/ShowCategory.vue';
 import AddCategory from '../View/CategoryAdmin/AddCategory.vue';
 import UpdateCategory from '../View/CategoryAdmin/UpdateCategory.vue'
 import DeleteCategory from '../View/CategoryAdmin/DeleteCategory.vue'
+import Register from '../View/Register.vue'
+import ShowCart from '../View/ShopCart/ShowCart.vue'
 const routes = [
 //   {
 //     path: '/home',
@@ -66,11 +68,15 @@ const routes = [
     ]
   },
   {
-    path:'/Sign',
+    path:'/SignIn',
     name:'SignIn',
     component:SignIn
   },
-  
+  {
+    path:'/Register',
+    name:'Register',
+    component:Register
+  },
   //Product
   {
     path: '/ProductCart',
@@ -84,21 +90,26 @@ const routes = [
     name:'CategoryCart',
     component: CategoryCart
   }
+  ,{
+    path:'/ShowCart',
+    name:'ShowCart',
+    component:ShowCart
+  }
 ];
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 });
   // Add navigation guard
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token');
-  const role = localStorage.getItem('role');
-  if (to.path.startsWith('/AdminLayout') && (token==null || role!=null)) {
-    next('/sign');
-  } else {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   const token = localStorage.getItem('token');
+//   const role = localStorage.getItem('role');
+//   if (to.path.startsWith('/AdminLayout') && (token==null || role==null)) {
+//     next('/SignIn');
+//   } else {
+//     next();
+//   }
+// });
 
 
 export default router;

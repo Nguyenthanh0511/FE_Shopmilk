@@ -10,7 +10,7 @@
       <!-- Display all the products in productbox component -->
       <div v-for="product in products" :key="product.prodId" class="col-md-6 col-xl-4 col-12 d-flex">
         <div>
-          <ProductBox :product="product"></ProductBox>
+          <ProductBox :product="product" :baseURL="baseURL"></ProductBox>
         </div>
       </div>
     </div>
@@ -23,18 +23,27 @@
     </div>
   </div>
 </template>
-  <script>
-  import ProductBox from '../../components/Product/ProductBox.vue'
-  export default {
-    name:"ProductCart",
-    components: {ProductBox},
-    props: ["products"],
-      // Other methods
+<script>
+import ProductBox from '../../components/Product/ProductBox.vue'
+export default {
+  name: "ProductCart",
+  components: { ProductBox },
+  props: {
+    products: {
+      type: Array,
+      default: () => []
+    },
+    baseURL: {
+      type: String,
+      
+    },
   }
-  </script>
-  
-  <style>
-  /* h4 {
+  // Other methods
+}
+</script>
+
+<style>
+/* h4 {
     font-family: 'Roboto', sans-serif;
     color: #484848;
     font-weight: 700;
@@ -44,4 +53,4 @@
     float: right;
     font-weight: 500;
   } */
-  </style>
+</style>

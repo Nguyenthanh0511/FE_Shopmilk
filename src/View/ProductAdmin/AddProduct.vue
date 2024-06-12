@@ -80,11 +80,11 @@ export default {
     async addProduct() {
       try {
         const formData = new FormData();
-        formData.append('prodId', this.prodId);
-        formData.append('cateId', this.cateId);
-        formData.append('prodName', this.productName);
+        formData.append('ProdId', this.prodId);
+        formData.append('CateId', this.cateId);
+        formData.append('ProdTitle', this.productName);
         formData.append('prodDescription', this.productDescription);
-        formData.append('prodPrice', this.productPrice);
+        formData.append('ProdPrice', this.productPrice);
         formData.append('prodImageUrl', this.productImageUrl);
         await axios.post(`${this.baseURL}/product/create`, formData, {
           headers: {

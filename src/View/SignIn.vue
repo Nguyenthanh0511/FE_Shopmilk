@@ -1,42 +1,41 @@
 <template>
-    <div class="container">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <!-- You can add a heading or a logo here if needed -->
+  <div class="container">
+    <div class="row mt-5">
+        
+      </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white text-center">
+            <h2>Login</h2>
+          </div>
+          <div class="card-body">
+            <form @submit.prevent="signin">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input v-model="username" type="text" class="form-control" id="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input v-model="password" type="password" class="form-control" id="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+            </form>
+            <hr>
+            <p class="text-center mb-0">
+              <small class="text-muted">Forgot your password?</small>
+            </p>
           </div>
         </div>
-        <div class="row">
-          <div>
-            <div id="signup-div" class="flex-item border">
-              <h2 class="pt-4 text-center">Đăng nhập</h2>
-              <form @submit.prevent="signin" class="pt-4 pl-4 pr-4">
-                <div class="form-group">
-                  <label>Username</label>
-                  <input v-model="username" type="text" class="form-control" required />
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input v-model="password" type="password" class="form-control" required />
-                </div>
-                <button type="submit" class="btn btn-primary mt-3 py-0">
-                  Đăng nhập
-                </button>
-              </form>
-              <hr />
-              <small class="form-text text-muted pt-2 pl-4 text-center">
-                Bạn đã quên mật khẩu?
-              </small>
-              <p class="text-center">
-                <!-- If you have a Signin route, you can uncomment this and adjust the route name accordingly -->
-                <!-- <router-link class="btn btn-dark text-center mx-auto px-5 py-1 mb-2" :to="{ name: 'Signin' }">Signin Here</router-link> -->
-              </p>
-            </div>
-          </div>
+        <div class="text-center mt-3">
+          <router-link class="btn btn-dark" :to="{ name: 'Register' }">Create an Account</router-link>
         </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
+
+
   
   <script>
   import axios from 'axios';
@@ -46,7 +45,7 @@
     props: ["baseURL"],
     data() {
       return {
-        UId: "U8",
+        UId: "",
         username: null,
         password: null,
       };
@@ -56,10 +55,10 @@
         try {
           // Create a FormData object to handle multipart/form-data
           const formData = new FormData();
-          formData.append('UId', this.UId);
           formData.append('UUserName', this.username);
           formData.append('UPassword', this.password);
-          
+          this.UId = axios.get(`${this.baseURL}/Users/retrunFllowId/${this.username}`)
+          formData.append('UId', this.UId);
           const response = await axios.post(this.baseURL+"/Login/Login", formData, {
             headers: {
               'Content-Type': 'multipart/form-data'
@@ -75,13 +74,18 @@
         });
         const firstUser = userResponse.data[0];
         const role = firstUser.uRole;
+        const userid = firstUser.uId;
         // Store role in localStorage
         localStorage.setItem('role', role);
         localStorage.setItem('token', token);
+        localStorage.setItem('userId',userid)
         this.$emit('login-success', token);
         // Check if token and role exist, then redirect to home
         if (token && role) {
           this.$router.push('/');
+        }
+        else{
+          console.log('token, role, userid, which are another null');
         }
         } catch (error) {
           // Handle login error
